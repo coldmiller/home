@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Add a new Movie</title>
+        
+    </head>
+    <body>
+       
+
+    <script>
+        var moviename, Description; 
+        var movieyear, rating, Movielength; 
+        moviename = prompt("Name of the movie:"); 
+        movieyear = prompt("Year the movie came out"); 
+        Description = prompt("Description of the Movie:"); 
+        rating = prompt("what is your rating 0-5: "); 
+        Movielength = prompt("what is the length of the movie(in minutes):"); 
+
+        var mysql = require(MySQL); 
+    
+    var con = mysql.createConnection({
+       host: "localhost",
+       user: "coletmiller",
+       password: "Roxanna/2021",
+       database: "MovieTable"
+        }); 
+
+        can.connect(function(err) {
+            if (err) throw err; 
+            console.log("Connected!"); 
+            var sql = "INSERT INTO Moviesselection (MovieTitle,MovieYEAR,Description,Rating,MovieLength) VALUES ('moviename','movieyear','Description','rating','Movielength')";
+            con.query(sql, function (err, result) {
+             if (err) throw err;
+            console.log(result.affectedRows+"1 record inserted");
+            });
+        }); 
+
+    </script>
+    <a href = "AllMovies.html"></a>
+    </body>
+</html>

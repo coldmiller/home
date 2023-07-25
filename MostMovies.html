@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html>
+    <head>
+        <link rel="stylesheet" href="navstylesheet.css"> 
+        <div class="navbar">
+            <a href="View.htm">Home</a>
+            
+            <div class="dropdown">
+              <button class="dropbtn">Movies 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="AllMovies.html">All Movies</a>
+                <a href="LestMovies.html">Lest Favorite Movies</a>
+                <a href="MostMovies.html">Most favorite Mvoies </a>
+              </div>
+              
+            
+            </div> 
+            <a href="About.html"> About</a>
+            <a href="Contact_us.html">Contact us</a>
+          </div>
+        <Title>Most Favorite Movies </Title>
+        <h1>Your Most favorite movie Selection</h1>
+        <!--the Most favorite movies you have on your list-->
+    </head>
+    <body>
+        <script>
+            
+    var mysql = require(MySQL); 
+    
+    var con = mysql.createConnection({
+       host: "localhost",
+       user: "coletmiller",
+       password: "Roxanna/2021",
+       database: "MovieTable"
+    }); 
+
+     con.connect(function(err) {
+       if(err) throw err; 
+         con.query("SELECT * FROM Moviesselection ORDER BY Rating ASC", function(err, result, fields) {
+       if (err) throw err;
+         console.log(result);
+     });
+   }); 
+          </script>
+     </body>
+</html>
